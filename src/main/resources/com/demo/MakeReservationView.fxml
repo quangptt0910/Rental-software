@@ -8,8 +8,10 @@
 
 <VBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.demo.MakeReservationController" spacing="10">
     <Label text="Make Reservation" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
-    <TextField fx:id="vehicleIdField" promptText="Vehicle ID" />
-    <TextField fx:id="customerNameField" promptText="Customer Name" />
+    <TextField fx:id="vehicleIdField" promptText="Vehicle ID" visible="false" />
+    <TextField fx:id="customerNameField" promptText="Your name" />
+    <TextField fx:id="customerEmailField" promptText="Your email" />
+    <TextField fx:id="customerPhoneField" promptText="Your phone number" />
     <TextField fx:id="reservationDateField" promptText="Reservation Date (YYYY-MM-DD)" />
     <TextField fx:id="returnDateField" promptText="Return Date (YYYY-MM-DD)" />
     <Button text="Confirm Reservation" onAction="#handleConfirmReservation" />

@@ -1,6 +1,5 @@
 package com.demo;
 
-// MakeReservationView.java
 import javafx.geometry.Insets;
 import javafx.stage.*;
 import javafx.scene.*;
@@ -14,41 +13,51 @@ public class MakeReservationView {
         Stage stage = new Stage();
         stage.setTitle("Make Reservation");
 
+        // Hide the vehicle ID field
         TextField vehicleIdField = new TextField();
         vehicleIdField.setPromptText("Vehicle ID");
+        vehicleIdField.setVisible(false);
 
         TextField customerNameField = new TextField();
         customerNameField.setPromptText("Customer Name");
 
+        TextField customerEmailField = new TextField();
+        customerEmailField.setPromptText("Customer Email");
+
+        TextField customerPhoneField = new TextField();
+        customerPhoneField.setPromptText("Customer Phone");
+
         TextField reservationDateField = new TextField();
-        reservationDateField.setPromptText("Reservation Date");
+        reservationDateField.setPromptText("Reservation Date (YYYY-MM-DD)");
 
         TextField returnDateField = new TextField();
-        returnDateField.setPromptText("Return Date");
+        returnDateField.setPromptText("Return Date (YYYY-MM-DD)");
 
         Button reserveButton = new Button("Reserve");
         reserveButton.setOnAction(e -> {
             try {
-                int vehicleId = Integer.parseInt(vehicleIdField.getText());
+                int vehicleId = 0; // Use a default or dummy vehicle ID value
                 Reservation reservation = new Reservation(
                         0, // Dummy value for reservationId, as it will be auto-incremented by the database
                         vehicleId,
                         customerNameField.getText(),
+                        customerEmailField.getText(),
+                        customerPhoneField.getText(),
                         reservationDateField.getText(),
                         returnDateField.getText()
                 );
                 dataStorage.addReservation(reservation);
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Reservation made successfully!");
                 alert.showAndWait();
-            } catch (NumberFormatException ex) {
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid vehicle ID. Please enter a valid number.");
+            } catch (Exception ex) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Failed to make reservation. Please check your input.");
                 alert.showAndWait();
             }
         });
 
-        VBox vbox = new VBox(10, vehicleIdField, customerNameField, reservationDateField, returnDateField, reserveButton);
+        VBox vbox = new VBox(10, customerNameField, customerEmailField, customerPhoneField, reservationDateField, returnDateField, reserveButton);
         vbox.setPadding(new Insets(10));
-        Scene scene = new Scene(vbox, 300, 200);
+        Scene scene = new Scene(vbox, 300, 300); // Adjusted scene height to accommodate new fields
         stage.setScene(scene);
         stage.show();
     }

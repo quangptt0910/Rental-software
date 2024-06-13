@@ -1,8 +1,9 @@
 package com.demo;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,8 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.Region;
+import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,7 +34,7 @@ public class MainControllerDemo {
     @FXML
     public void initialize() {
         // Initialize types
-        String[] types = {"All", "ICECar", "HybridCar", "BEVCar", "Motorcycle", "Pickup", "Camper"};
+        String[] types = {"All", "ICECar", "HybridCar", "BEVCar","PHEVCar", "Motorcycle", "Pickup", "Camper"};
         for (String type : types) {
             Button typeButton = new Button(type);
             typeButton.setOnAction(event -> handleTypeFilter(type));
@@ -62,6 +62,7 @@ public class MainControllerDemo {
         } else {
             displayVehicles(vehicles);
         }
+        
     }
 
     @FXML
@@ -76,16 +77,22 @@ public class MainControllerDemo {
     }
 
     private void handleTypeFilter(String type) {
+        String searchTerm = searchBar.getText().toLowerCase();
         List<Vehicle> filteredVehicles = dataStorage.getAvailableVehicles().stream()
-                .filter(vehicle -> type.equals("All") || vehicle.getType().equals(type))
+                .filter(vehicle -> (type.equals("All") || vehicle.getType().equals(type)) &&
+                        (vehicle.getBrand().toLowerCase().contains(searchTerm) ||
+                                vehicle.getModel().toLowerCase().contains(searchTerm)))
                 .collect(Collectors.toList());
 
         displayVehicles(filteredVehicles);
     }
 
     private void handleBrandFilter(String brand) {
+        String searchTerm = searchBar.getText().toLowerCase();
         List<Vehicle> filteredVehicles = dataStorage.getAvailableVehicles().stream()
-                .filter(vehicle -> vehicle.getBrand().equals(brand))
+                .filter(vehicle -> vehicle.getBrand().equals(brand) &&
+                        (vehicle.getBrand().toLowerCase().contains(searchTerm) ||
+                                vehicle.getModel().toLowerCase().contains(searchTerm)))
                 .collect(Collectors.toList());
 
         displayVehicles(filteredVehicles);

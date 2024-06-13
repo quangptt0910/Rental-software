@@ -17,6 +17,8 @@ public class VehicleDetailsController {
     @FXML
     private Label modelLabel;
     @FXML
+    private Label brandModelLabel;
+    @FXML
     private Label typeLabel;
     @FXML
     private Label priceLabel;
@@ -27,8 +29,7 @@ public class VehicleDetailsController {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
-        brandLabel.setText(vehicle.getBrand());
-        modelLabel.setText(vehicle.getModel());
+        brandModelLabel.setText(vehicle.getBrand() + " " + vehicle.getModel());
         typeLabel.setText(vehicle.getType());
         priceLabel.setText("$" + vehicle.getPricePerDay() + " / day");
     }

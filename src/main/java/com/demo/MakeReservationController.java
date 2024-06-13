@@ -10,6 +10,10 @@ public class MakeReservationController {
     @FXML
     private TextField customerNameField;
     @FXML
+    private TextField customerEmailField;
+    @FXML
+    private TextField customerPhoneField;
+    @FXML
     private TextField reservationDateField;
     @FXML
     private TextField returnDateField;
@@ -28,10 +32,12 @@ public class MakeReservationController {
         try {
             int vehicleId = Integer.parseInt(vehicleIdField.getText());
             String customerName = customerNameField.getText();
+            String customerEmail = customerEmailField.getText();
+            String customerPhone = customerPhoneField.getText();
             String reservationDate = reservationDateField.getText();
             String returnDate = returnDateField.getText();
 
-            if (customerName.isEmpty() || reservationDate.isEmpty() || returnDate.isEmpty()) {
+            if (customerName.isEmpty() || customerEmail.isEmpty() || customerPhone.isEmpty() || reservationDate.isEmpty() || returnDate.isEmpty()) {
                 showAlert(Alert.AlertType.ERROR, "Error", "Please fill in all fields.");
                 return;
             }
@@ -40,6 +46,8 @@ public class MakeReservationController {
                     0, // Dummy value for reservationId, as it will be auto-incremented by the database
                     vehicleId,
                     customerName,
+                    customerEmail,
+                    customerPhone,
                     reservationDate,
                     returnDate
             );

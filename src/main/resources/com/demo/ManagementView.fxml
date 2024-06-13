@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.demo.ManagementAppController" spacing="10">
+    <VBox spacing="10">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <Label text="Vehicle Management" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+        <TextField fx:id="vehicleSearchField" promptText="Search" onKeyReleased="#handleVehicleSearch" />
+        <ChoiceBox fx:id="vehicleBrandFilterChoiceBox" onAction="#handleVehicleFilter" />
+        <ChoiceBox fx:id="vehicleTypeFilterChoiceBox" onAction="#handleVehicleFilter" />
+
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <TableView fx:id="vehicleTable" prefHeight="400">
+                <columns>
+                    <TableColumn fx:id="idColumn" text="ID" />
+                    <TableColumn fx:id="brandColumn" text="Brand" />
+                    <TableColumn fx:id="modelColumn" text="Model" />
+                    <TableColumn fx:id="typeColumn" text="Type" />
+                    <TableColumn fx:id="priceColumn" text="Price Per Day" />
+                    <TableColumn fx:id="availabilityColumn" text="Available" />
+                </columns>
+            </TableView>
+        </ScrollPane>
+
+        <TextField fx:id="brandField" promptText="Brand" />
+        <TextField fx:id="modelField" promptText="Model" />
+        <TextField fx:id="typeField" promptText="Type" />
+        <TextField fx:id="priceField" promptText="Price Per Day" />
+        <TextField fx:id="availabilityField" promptText="Available (true/false)" />
+
+        <Button text="Add Vehicle" onAction="#handleAddVehicle" />
+        <Button text="Update Vehicle" onAction="#handleUpdateVehicle" />
+        <Button text="Delete Vehicle" onAction="#handleDeleteVehicle" />
+        <Button text="Clear Fields" onAction="#handleClearFields" />
+    </VBox>
+
+    <VBox spacing="10">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <Label text="Reservations" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+        <TextField fx:id="reservationSearchField" promptText="Search" onKeyReleased="#handleReservationSearch" />
+        <ChoiceBox fx:id="reservationVehicleIdFilterChoiceBox" onAction="#handleReservationFilter" />
+
+        <ScrollPane fitToWidth="true" fitToHeight="true">
+            <TableView fx:id="reservationTable" prefHeight="400">
+                <columns>
+                    <TableColumn fx:id="reservationIdColumn" text="ID" />
+                    <TableColumn fx:id="reservationVehicleIdColumn" text="VehicleID" />
+                    <TableColumn fx:id="customerNameColumn" text="Name" />
+                    <TableColumn fx:id="customerEmailColumn" text="Email" />
+                    <TableColumn fx:id="customerPhoneColumn" text="Phone" />
+                    <TableColumn fx:id="reservationDateColumn" text="Reservation Date" />
+                    <TableColumn fx:id="returnDateColumn" text="Return Date" />
+                </columns>
+            </TableView>
+        </ScrollPane>
+
+        <Button text="Delete Reservation" onAction="#handleDeleteReservation" />
+    </VBox>
+</HBox>

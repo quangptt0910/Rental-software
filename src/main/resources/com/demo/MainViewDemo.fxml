@@ -46,7 +46,7 @@
                     <Insets top="10" right="10" bottom="10" left="10"/>
                 </padding>
                 <Label text="Available Cars" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
-                <!-- Car listings with price per day will be added dynamically in the controller -->
+
             </VBox>
         </ScrollPane>
     </center>

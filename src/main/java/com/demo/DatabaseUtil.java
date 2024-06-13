@@ -25,9 +25,11 @@ public class DatabaseUtil {
                 "reservationId INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "vehicleId INTEGER, " +
                 "customerName TEXT, " +
+                "customerEmail TEXT, " +
+                "customerPhone TEXT, " +
                 "reservationDate TEXT, " +
                 "returnDate TEXT, " +
-                "FOREIGN KEY(vehicleId) REFERENCES vehicles(id))";
+                "FOREIGN KEY(vehicleId) REFERENCES vehicles(id) ON DELETE CASCADE)";
 
         try (Connection conn = connect(); Statement stmt = conn.createStatement()) {
             stmt.execute(createVehiclesTable);
