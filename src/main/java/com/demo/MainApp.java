@@ -11,7 +11,7 @@ import java.util.Objects;
 public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/demo/MainViewDemo.fxml")));
+        Parent root = FXMLLoader.load(getClass().getResource("/com/demo/MainViewDemo.fxml"));
         primaryStage.setTitle("Vehicle Rental Management");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();

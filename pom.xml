@@ -20,6 +20,12 @@
       <artifactId>sqlite-jdbc</artifactId>
       <version>3.45.0.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-swing -->
+    <dependency>
+      <groupId>org.openjfx</groupId>
+      <artifactId>javafx-swing</artifactId>
+      <version>23-ea+20</version>
+    </dependency>
 
     <dependency>
       <groupId>org.openjfx</groupId>
@@ -71,10 +77,7 @@
       <groupId>org.kordamp.bootstrapfx</groupId>
       <artifactId>bootstrapfx-core</artifactId>
       <version>0.4.0</version>
-    </dependency><dependency>
-      <groupId>eu.hansolo</groupId>
-      <artifactId>tilesfx</artifactId>
-      <version>17.1.17</version>
+
       <exclusions>
         <exclusion>
           <groupId>org.openjfx</groupId>

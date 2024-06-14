@@ -43,7 +43,7 @@ public class MakeReservationController {
             }
 
             Reservation reservation = new Reservation(
-                    0, // Dummy value for reservationId, as it will be auto-incremented by the database
+                    0,
                     vehicleId,
                     customerName,
                     customerEmail,

@@ -36,9 +36,9 @@ public class MakeReservationView {
         Button reserveButton = new Button("Reserve");
         reserveButton.setOnAction(e -> {
             try {
-                int vehicleId = 0; // Use a default or dummy vehicle ID value
+                int vehicleId = 0;
                 Reservation reservation = new Reservation(
-                        0, // Dummy value for reservationId, as it will be auto-incremented by the database
+                        0,
                         vehicleId,
                         customerNameField.getText(),
                         customerEmailField.getText(),
@@ -57,7 +57,7 @@ public class MakeReservationView {
 
         VBox vbox = new VBox(10, customerNameField, customerEmailField, customerPhoneField, reservationDateField, returnDateField, reserveButton);
         vbox.setPadding(new Insets(10));
-        Scene scene = new Scene(vbox, 300, 300); // Adjusted scene height to accommodate new fields
+        Scene scene = new Scene(vbox, 500, 500);
         stage.setScene(scene);
         stage.show();
     }
