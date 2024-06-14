@@ -35,5 +35,5 @@ Write software that allows a rental company to manage a fleet of vehicles such a
 
 #### In progress
 + Issue invoice
-+ Validate the customer email and phone
++ Validate the customer email and phone, date (reservation date and return date)
 + Sort function in main application
