@@ -32,7 +32,11 @@ Write software that allows a rental company to manage a fleet of vehicles such a
 	+ Reservations (reservationId, vehicleId, customerName, customerEmail, customerPhone, reservationDate, returnDate)
 		+ vehicleId <--> Vehicles(id)
 + Sample data of vehicles
++ 
+###14.06
++ Update pom.xml
 
+  
 #### In progress
 + Issue invoice
 + Validate the customer email and phone, date (reservation date and return date)
