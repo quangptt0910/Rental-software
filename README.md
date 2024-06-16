@@ -1,4 +1,4 @@
-# rental-software
+# Rental-software
 
 Write software that allows a rental company to manage a fleet of vehicles such as ICE/hybrid/BEV cars, motorcycles, pickups, and campers. The software should allow you to search for available vehicles in a given category, make a reservation, and issue an invoice
 
@@ -32,8 +32,8 @@ Write software that allows a rental company to manage a fleet of vehicles such a
 	+ Reservations (reservationId, vehicleId, customerName, customerEmail, customerPhone, reservationDate, returnDate)
 		+ vehicleId <--> Vehicles(id)
 + Sample data of vehicles
-+ 
-###14.06
+  
+### 14.06
 + Update pom.xml
 
   
